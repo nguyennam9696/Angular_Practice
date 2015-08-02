@@ -1,0 +1,17 @@
+<div class="container" data-ng-controller="CustomerController">
+  <h1>Page 2</h1>
+  City:
+  <br />
+  <!-- Data Binding Expression = name. As users type in to the box, name will bind to that "value"
+       Data Binding Statement = {{ name }}
+       {{ DBS | filter}}
+   -->
+
+  <input type="text" data-ng-model="city" />
+  <br />
+  <ul>
+    <li data-ng-repeat="person in customers | filter:city | orderBy:'name'">
+      {{ person.name | uppercase }} - {{ person.city }}
+    </li>
+  </ul>
+</div>
