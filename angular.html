@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!-- Directives = ng-app && ng-model etc. that teach HTML static pages new tricks -->
+<html ng-app>
+  <head>
+    <title>
+      AngularJS Sample App
+    </title>
+  </head>
+  <body>
+    <div class="container">
+      Name:
+      <br />
+      <!-- Data Binding Expression = name. As users type in to the box, name will bind to that "value"
+       -->
+      <input type="text" ng-model="name" /> {{ name }}
+    </div>
+
+    <script src="angular.min.js"></script>
+  </body>
+</html>
