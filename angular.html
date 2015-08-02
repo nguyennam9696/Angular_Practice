@@ -7,7 +7,7 @@
       AngularJS Sample App
     </title>
   </head>
-<body data-ng-init="names=['Nam Nguyen', 'Martin Khuat', 'Henry Do']">
+<body data-ng-init="customers=[{name:'Nam Nguyen', city: 'Garden Grove'}, {name:'Nam Yo', city: 'San Francisco'}, {name:'Martin Khuat', city: 'Westminster'}, {name:'Henry Do', city: 'Merced'}]">
   <div class="container">
     Name:
     <br />
@@ -16,10 +16,10 @@
          {{ DBS | filter}}
      -->
 
-    <input type="text" data-ng-model="name" /> {{ name }}
+    <input type="text" data-ng-model="name" />
     <br />
     <ul>
-      <li data-ng-repeat="personName in names"> {{ personName }}</li>
+      <li data-ng-repeat="person in customers | filter:name | orderBy:'city'"> {{ person.name | uppercase }} - {{ person.city }}</li>
     </ul>
   </div>
 
