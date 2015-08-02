@@ -27,16 +27,36 @@
 
   <script src="script/angular.min.js"></script>
   <script>
+
+    // One way is to pass in an anonymous function.
+    // Creating a controller in a module .
+    // 'sampleApp = Defining a module'
+
     var sampleApp = angular.module('sampleApp', []);
 
-    sampleApp.controller('CustomerController', function CustomerController($scope) {
+    // 'CustomerController' = Defining a controller
+
+    // sampleApp.controller('CustomerController', function ($scope) {
+    //   $scope.customers = [
+    //     { name:'Nam Nguyen', city: 'Garden Grove' },
+    //     { name:'Nam Yo', city: 'San Francisco' },
+    //     { name:'Martin Khuat', city: 'Westminster' },
+    //     { name:'Henry Do', city: 'Merced' }
+    //   ];
+    // });
+
+    // Second way is to create an empty object literal for easier prototyping
+    var controllers = {}
+    controllers.CustomerController = function CustomerController($scope) {
       $scope.customers = [
         { name:'Nam Nguyen', city: 'Garden Grove' },
         { name:'Nam Yo', city: 'San Francisco' },
         { name:'Martin Khuat', city: 'Westminster' },
         { name:'Henry Do', city: 'Merced' }
       ];
-    });
+    };
+
+    sampleApp.controller(controllers);
   </script>
 </body>
 </html>
