@@ -1,3 +1,4 @@
+<!-- To know more angular directives and how to test directives go to http://www.docs.angularjs.org/api/ -->
 <!DOCTYPE html>
 <!-- Directives = ng-app && ng-model etc. that teach HTML static pages new tricks -->
 <html data-ng-app="">
@@ -6,13 +7,20 @@
       AngularJS Sample App
     </title>
   </head>
-<body>
+<body data-ng-init="names=['Nam Nguyen', 'Martin Khuat', 'Henry Do']">
   <div class="container">
     Name:
     <br />
     <!-- Data Binding Expression = name. As users type in to the box, name will bind to that "value"
+         Data Binding Statement = {{ name }}
+         {{ DBS | filter}}
      -->
+
     <input type="text" data-ng-model="name" /> {{ name }}
+    <br />
+    <ul>
+      <li data-ng-repeat="personName in names"> {{ personName }}</li>
+    </ul>
   </div>
 
   <script src="script/angular.min.js"></script>
