@@ -1,14 +1,14 @@
 <!-- To know more angular directives and how to test directives go to http://www.docs.angularjs.org/api/ -->
 <!DOCTYPE html>
 <!-- Directives = ng-app && ng-model etc. that teach HTML static pages new tricks -->
-<html data-ng-app="">
+<html data-ng-app="sampleApp">
   <head>
     <title>
       AngularJS Sample App
     </title>
   </head>
-<body data-ng-init="customers=[{name:'Nam Nguyen', city: 'Garden Grove'}, {name:'Nam Yo', city: 'San Francisco'}, {name:'Martin Khuat', city: 'Westminster'}, {name:'Henry Do', city: 'Merced'}]">
-  <div class="container">
+<body>
+  <div class="container" data-ng-controller="CustomerController">
     Name:
     <br />
     <!-- Data Binding Expression = name. As users type in to the box, name will bind to that "value"
@@ -19,10 +19,24 @@
     <input type="text" data-ng-model="name" />
     <br />
     <ul>
-      <li data-ng-repeat="person in customers | filter:name | orderBy:'city'"> {{ person.name | uppercase }} - {{ person.city }}</li>
+      <li data-ng-repeat="person in customers | filter:name | orderBy:'city'">
+        {{ person.name | uppercase }} - {{ person.city }}
+      </li>
     </ul>
   </div>
 
   <script src="script/angular.min.js"></script>
+  <script>
+    var sampleApp = angular.module('sampleApp', []);
+
+    sampleApp.controller('CustomerController', function CustomerController($scope) {
+      $scope.customers = [
+        { name:'Nam Nguyen', city: 'Garden Grove' },
+        { name:'Nam Yo', city: 'San Francisco' },
+        { name:'Martin Khuat', city: 'Westminster' },
+        { name:'Henry Do', city: 'Merced' }
+      ];
+    });
+  </script>
 </body>
 </html>
